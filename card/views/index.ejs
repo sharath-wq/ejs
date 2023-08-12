@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include("./partials/head.ejs") %>
+    <body>
+        <nav class="navbar navbar-light bg-light">
+            <div class="container">
+                <a class="navbar-brand" href="#">Ejs Cards</a>
+            </div>
+        </nav>
+
+        <div class="container mt-5">
+            <div class="row">
+                <% if(data && data.length > 0) { %> <% data.forEach((item) => { %>
+                <div class="col-4 mt-5">
+                    <div class="card" style="width: 18rem">
+                        <img src="<%= item.Image %>" class="card-img-top" alt="<%= item.Title %>" />
+                        <div class="card-body">
+                            <h5 class="card-title"><%= item.Title %></h5>
+                            <p class="card-text"><%= item.Description %></p>
+                            <a href="#" class="btn btn-primary"><%= item.Price %></a>
+                        </div>
+                    </div>
+                </div>
+                <% }) %> <% } %> <%- include("./partials/cdn.ejs") %>
+            </div>
+        </div>
+    </body>
+</html>
